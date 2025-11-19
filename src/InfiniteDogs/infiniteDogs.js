@@ -44,6 +44,10 @@ function printDogs(dogObjArray) {
 
 }
 
-// al click viene fatta una richiesta all'API 
-// che stamperà 9 immagini di cani a schermo
-loadMore.addEventListener('click', fetchDogs)
+// se l'altezza della finestra + la coord Y dello scroll
+// è maggiore dell'altezza del body allora carica nuovi contenuti
+window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+        fetchDogs();
+    }
+});
