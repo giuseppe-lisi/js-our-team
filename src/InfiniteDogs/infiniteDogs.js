@@ -18,8 +18,10 @@ function fetchDogs() {
  * Stampa a schermo le immagini pervenute dalla dog o cat API
 */
 function printDogs(dogObjArray) {
-    // definisce il div in cui verranno stampate le immagini
-    const dogContainer = document.getElementById('dog-img-container');
+    // definisce i div in cui verranno stampate le immagini
+    const dogContainer1 = document.getElementById('dog-img-container1');
+    const dogContainer2 = document.getElementById('dog-img-container2');
+    const dogContainer3 = document.getElementById('dog-img-container3');
     // array dove saranno contenuti tutti gli oggetti 'cane'
 
     // per ogni oggetto prende l'url e lo imposta come src del div immagine
@@ -27,7 +29,21 @@ function printDogs(dogObjArray) {
     for (let i = 0; i < dogObjArray.length - 1; i++) {
         const dogObj = dogObjArray[i];
         // per ogni oggetto, prende e stampa soltanto l'immagine
-        dogContainer.innerHTML += `<img src="${dogObj.url}">`
+        if (i <= 2) {
+            dogContainer1.innerHTML += `
+                <div class="img-card" style="background-image: url(${dogObj.url}); background-size: cover; background-repeat: no-repeat;"></div>
+            `
+        }
+        if (i >= 3 && i <= 5) {
+            dogContainer2.innerHTML += `
+                <div class="img-card" style="background-image: url(${dogObj.url}); background-size: cover; background-repeat: no-repeat;"></div>
+            `
+        }
+        if (i >= 6) {
+            dogContainer3.innerHTML += `
+                <div class="img-card" style="background-image: url(${dogObj.url}); background-size: cover; background-repeat: no-repeat;"></div>
+            `
+        }
     }
 
 }

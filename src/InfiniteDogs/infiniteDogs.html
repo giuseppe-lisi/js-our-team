@@ -10,17 +10,22 @@
     <title>InfiniteDogs | Home</title>
 </head>
 
+<!-- Loads a starting grid of images on site load -->
 <body onload="fetchDogs()">
+    <!-- Header -->
     <header class="wrapper text-center">
         <h1>Infinite Dogs</h1>
         <p>Scroll for More Dogs</p>
     </header>
 
     <!-- Dog Imgs Are Rendered Here -->
-    <div class="wrapper grid grid-cols-3 grid-rows-3 gap-5" id="dog-img-container">
-        
+    <div class="wrapper flex justify-between gap-3">
+        <div class="h-200 w-[30%] gap-y-3 flex flex-col" id="dog-img-container1"></div>
+        <div class="h-200 w-[30%] gap-y-3 flex flex-col" id="dog-img-container2"></div>
+        <div class="h-200 w-[30%] gap-y-3 flex flex-col" id="dog-img-container3"></div>
     </div>
 
+    <!-- Load More Button -->
     <div class="flex">
         <button class="btn" id="load">Load More</button>
     </div>

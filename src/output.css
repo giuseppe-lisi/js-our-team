@@ -202,33 +202,26 @@
   .grid {
     display: grid;
   }
-  .h-fit {
-    height: fit-content;
+  .h-200 {
+    height: calc(var(--spacing) * 200);
   }
-  .h-full {
-    height: 100%;
+  .w-\[30\%\] {
+    width: 30%;
   }
-  .w-auto {
-    width: auto;
+  .flex-col {
+    flex-direction: column;
   }
-  .w-full {
-    width: 100%;
-  }
-  .grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-  .grid-rows-3 {
-    grid-template-rows: repeat(3, minmax(0, 1fr));
+  .justify-between {
+    justify-content: space-between;
   }
   .justify-center {
     justify-content: center;
   }
-  .gap-5 {
-    gap: calc(var(--spacing) * 5);
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
+  .gap-y-3 {
+    row-gap: calc(var(--spacing) * 3);
   }
   .text-center {
     text-align: center;
@@ -245,7 +238,13 @@
   }
 }
 @layer components {
+  .img-card {
+    height: 30%;
+    width: 100%;
+  }
   .btn {
+    margin-top: calc(var(--spacing) * 30);
+    margin-bottom: calc(var(--spacing) * 20);
     border-style: var(--tw-border-style);
     border-width: 2px;
     border-color: var(--color-gray-500);
