@@ -12,10 +12,10 @@
     --spacing: 0.25rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
-    --text-lg: 1.125rem;
-    --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
     --font-weight-bold: 700;
@@ -172,26 +172,7 @@
     display: none !important;
   }
 }
-@layer utilities {
-  .container {
-    width: 100%;
-    @media (width >= 40rem) {
-      max-width: 40rem;
-    }
-    @media (width >= 48rem) {
-      max-width: 48rem;
-    }
-    @media (width >= 64rem) {
-      max-width: 64rem;
-    }
-    @media (width >= 80rem) {
-      max-width: 80rem;
-    }
-    @media (width >= 96rem) {
-      max-width: 96rem;
-    }
-  }
-}
+@layer utilities;
 @layer base {
   * {
     font-family: var(--font-sans);
@@ -201,16 +182,34 @@
     margin-bottom: calc(var(--spacing) * 20);
   }
   h1 {
-    font-size: var(--text-5xl);
-    line-height: var(--tw-leading, var(--text-5xl--line-height));
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+    @media (width >= 48rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
   }
   .card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: calc(var(--spacing) * 10);
+    justify-content: center;
+    column-gap: calc(var(--spacing) * 5);
+    row-gap: calc(var(--spacing) * 10);
+    @media (width >= 48rem) {
+      display: grid;
+    }
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (width >= 64rem) {
+      display: grid;
+    }
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
   .card {
+    width: fit-content;
     border-radius: var(--radius-md);
     border-style: var(--tw-border-style);
     border-width: 1px;
@@ -244,7 +243,10 @@
 }
 @layer utilities {
   .wrapper {
-    margin-inline: calc(var(--spacing) * 40);
+    margin-inline: 10%;
+  }
+  .wrapper-xl {
+    margin-inline: 15%;
   }
 }
 @property --tw-border-style {
