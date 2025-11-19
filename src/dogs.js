@@ -1,32 +1,32 @@
-const url = 'https://api.thedogapi.com/v1/images/search?limit=10';
+const url = 'https://api.thedogapi.com/v1/images/search?limit=9';
 const loadMore = document.getElementById('load');
 
-function printDogs(dogImgs){
+/**
+ * Stampa a schermo le immagini pervenute dalla dog o cat API
+ * @param {Object} Array An Array of objects fetched from thedogAPI or thecatAPI
+*/
+function printDogs(dogObjArray) {
+    // definisce il div in cui verranno stampate le immagini
     const dogContainer = document.getElementById('dog-img-container');
 
-    for (let i = 0; i < dogImgs.length; i++) {
-        const dogImg = dogImgs[i];
-        dogContainer.innerHTML += `<img src="${dogImg}">`
+    // per ogni oggetto prende l'url e lo imposta come src del div immagine
+    // che viene aggiunto al container delle immagini dei cani
+    for (let i = 0; i < dogObjArray.length; i++) {
+        const dogObj = dogObjArray[i];
+        // per ogni oggetto, prende e stampa soltanto l'immagine
+        dogContainer.innerHTML += `<img src="${dogObj.url}">`
     }
+
 }
 
-function getImgFromArrOfObj(array) {
-    const dogImgUrls = [];
-
-    for (let i = 0; i < array.length; i++) {
-        const dogObj = array[i];
-        dogImgUrls.push(dogObj.url);
-    }
-    console.log(dogImgUrls);
-    return dogImgUrls;
-}
-
+// al click viene fatta una richiesta all'API 
+// che stamperà 9 immagini di cani a schermo
 loadMore.addEventListener('click', () => {
     fetch(url)
-        // fetch dell'array con i cani e parsa in json
+        // fetch dell'array di oggetti con i cani e parse in json
         .then(response => response.json())
-        .then(dogsArray => printDogs(getImgFromArrOfObj(dogsArray)))
-        .then(logThis => console.log(logThis))
+        .then(dogs => printDogs(dogs))
+
         .catch(error => console.error(error));
 });
 
