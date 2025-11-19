@@ -202,16 +202,21 @@
   .grid {
     display: grid;
   }
+  .flex-col {
+    flex-direction: column;
+  }
   .justify-center {
     justify-content: center;
   }
-  .text-center {
-    text-align: center;
+  .justify-end {
+    justify-content: flex-end;
   }
 }
 @layer base {
   header {
-    margin-block: calc(var(--spacing) * 10);
+    display: flex;
+    justify-content: space-between;
+    padding-block: calc(var(--spacing) * 10);
   }
   h1 {
     font-family: var(--font-sans);
@@ -237,8 +242,6 @@
     gap: calc(var(--spacing) * 1);
   }
   .btn {
-    margin-top: calc(var(--spacing) * 30);
-    margin-bottom: calc(var(--spacing) * 20);
     border-style: var(--tw-border-style);
     border-width: 2px;
     border-color: var(--color-gray-500);

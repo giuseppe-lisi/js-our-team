@@ -13,13 +13,19 @@
 <!-- Loads a starting grid of images on site load -->
 <body onload="fetchDogs()">
     <!-- Header -->
-    <header class="wrapper text-center">
-        <h1>Infinite Dogs</h1>
-        <p>Scroll for More Dogs</p>
+    <header class="wrapper">
+        <div>
+            <h1>Infinite <span id="animal">Dogs</span></h1>
+            <p>Scroll for More Dogs</p>
+        </div>
+        <div class="flex flex-col justify-end">
+            <p>Switch between Cat and Dog mode</p>
+            <button class="btn" id="switch">Switch</button>
+        </div>
     </header>
 
     <!-- Dog Imgs Are Rendered Here -->
-    <div class="wrapper dog-img-container">
+    <div class="wrapper dog-img-container" id="dog-img-container">
         <div class="img-col" id="dog-img-col1"></div>
         <div class="img-col" id="dog-img-col2"></div>
         <div class="img-col" id="dog-img-col3"></div>

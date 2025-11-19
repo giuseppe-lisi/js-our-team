@@ -1,7 +1,9 @@
-const url = 'https://api.thedogapi.com/v1/images/search?limit=9';
+let animal = 'dog';
+const switchMode = document.getElementById('switch');
 
 function fetchDogs() {
-    // fetch dell'array di oggetti con i cani e parse in json per
+    const url = `https://api.the${animal}api.com/v1/images/search?limit=9`;
+    // fetch dell'array di oggetti con i cani e parse in json
     fetch(url)
         .then(response => response.json())
         .then(dogs => printDogs(dogs))
@@ -50,3 +52,28 @@ window.addEventListener('scroll', () => {
         fetchDogs();
     }
 });
+
+// cambia in modalità cani
+switchMode.addEventListener('click', () => {
+    const col1 = document.getElementById('dog-img-col1');
+    const col2 = document.getElementById('dog-img-col2');
+    const col3 = document.getElementById('dog-img-col3');
+    const animalEl = document.getElementById('animal');
+
+    if (animal == 'dog') {
+        animal = 'cat';
+        animalEl.innerText = 'Cats';
+        col1.innerHTML = '';
+        col2.innerHTML = '';
+        col3.innerHTML = '';
+        fetchDogs();
+    } else {
+        animal = 'dog';
+        animalEl.innerText = 'Dogs';
+        col1.innerHTML = '';
+        col2.innerHTML = '';
+        col3.innerHTML = '';
+        fetchDogs();
+    }
+    
+})
