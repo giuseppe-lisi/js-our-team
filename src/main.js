@@ -37,7 +37,7 @@ const teamMembers = [
   }
 ];
 
-const drawCard = () => {
+const drawCards = () => {
     const containerElement = document.getElementById('card-container');
 
     for (let i = 0; i < teamMembers.length; i++) {
@@ -45,7 +45,7 @@ const drawCard = () => {
 
         containerElement.innerHTML += `
             <div class="card">
-                <img src="img/female1.png" class="card-img">
+                <img src="./${teamMember.img}" class="card-img">
                 <div class="card-name">
                     ${teamMember.name}
                 </div>
@@ -56,9 +56,8 @@ const drawCard = () => {
                     ${teamMember.email}
                 </div>
             </div>
-            `
-        
+            ` 
     }
 }
 
-drawCard();
+drawCards();
