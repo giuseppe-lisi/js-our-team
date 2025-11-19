@@ -202,38 +202,8 @@
   .grid {
     display: grid;
   }
-  .h-50 {
-    height: calc(var(--spacing) * 50);
-  }
-  .h-200 {
-    height: calc(var(--spacing) * 200);
-  }
-  .h-\[25\%\] {
-    height: 25%;
-  }
-  .h-\[30\%\] {
-    height: 30%;
-  }
-  .h-\[1000px\] {
-    height: 1000px;
-  }
-  .w-\[30\%\] {
-    width: 30%;
-  }
-  .flex-col {
-    flex-direction: column;
-  }
-  .justify-between {
-    justify-content: space-between;
-  }
   .justify-center {
     justify-content: center;
-  }
-  .gap-3 {
-    gap: calc(var(--spacing) * 3);
-  }
-  .gap-y-3 {
-    row-gap: calc(var(--spacing) * 3);
   }
   .text-center {
     text-align: center;
@@ -248,11 +218,22 @@
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
   }
+  img {
+    min-width: 100%;
+    object-fit: fill;
+  }
 }
 @layer components {
-  .img-card {
+  .dog-img-container {
+    display: flex;
+    gap: calc(var(--spacing) * 1);
+  }
+  .img-col {
+    display: flex;
     height: 30%;
-    width: 100%;
+    width: 30%;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1);
   }
   .btn {
     margin-top: calc(var(--spacing) * 30);

@@ -1,10 +1,6 @@
 const url = 'https://api.thedogapi.com/v1/images/search?limit=9';
 const loadMore = document.getElementById('load');
 
-function getRandom(min, max) {
-  return parseInt(Math.random() * (max - min) + min);
-}
-
 function fetchDogs() {
     // fetch dell'array di oggetti con i cani e parse in json per
     fetch(url)
@@ -23,7 +19,9 @@ function fetchDogs() {
 */
 function printDogs(dogObjArray) {
     // definisce il div in cui verranno stampate le immagini
-    const dogContainer = document.getElementById('dog-img-container');
+    const dogCol1 = document.getElementById('dog-img-col1');
+    const dogCol2 = document.getElementById('dog-img-col2');
+    const dogCol3 = document.getElementById('dog-img-col3');
 
     // array dove saranno contenuti tutti gli oggetti 'cane'
 
@@ -31,14 +29,17 @@ function printDogs(dogObjArray) {
     // che viene aggiunto al container delle immagini dei cani
     for (let i = 0; i < dogObjArray.length - 1; i++) {
         const dogObj = dogObjArray[i];
-        const randomHeight = getRandom(15, 30);
         
         // per ogni oggetto, prende e stampa soltanto l'immagine
-        dogContainer.innerHTML += `
-            <div class="img-card">
-                <img src="${dogObj.url}">
-            </div>
-        `
+        if (i <= 2) {
+            dogCol1.innerHTML += `<div><img src="${dogObj.url}"></div>`
+        }
+        if (i >= 3 && i <= 5) {
+            dogCol2.innerHTML += `<div><img src="${dogObj.url}"></div>`
+        }
+        if (i >= 6) {
+            dogCol3.innerHTML += `<div><img src="${dogObj.url}"></div>`
+        }
     }
 
 }
