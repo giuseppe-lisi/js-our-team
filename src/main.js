@@ -41,17 +41,19 @@ const drawCard = () => {
     const containerElement = document.getElementById('card-container');
 
     for (let i = 0; i < teamMembers.length; i++) {
+        const teamMember = teamMembers[i];
+
         containerElement.innerHTML += `
             <div class="card">
                 <img src="img/female1.png" class="card-img">
                 <div class="card-name">
-                    Laura Rossi
+                    ${teamMember.name}
                 </div>
                 <div class="card-role">
-                    Front-End Dev
+                    ${teamMember.role}
                 </div>
                 <div class="card-email">
-                    laurarossi@team.com
+                    ${teamMember.email}
                 </div>
             </div>
             `
