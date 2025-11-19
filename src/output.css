@@ -196,9 +196,6 @@
       max-width: 96rem;
     }
   }
-  .block {
-    display: block;
-  }
   .flex {
     display: flex;
   }
@@ -229,6 +226,7 @@
 @layer components {
   .dog-img-container {
     display: flex;
+    justify-content: center;
     gap: calc(var(--spacing) * 1);
   }
   .img-col {

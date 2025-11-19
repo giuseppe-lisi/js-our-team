@@ -1,5 +1,4 @@
 const url = 'https://api.thedogapi.com/v1/images/search?limit=9';
-const loadMore = document.getElementById('load');
 
 function fetchDogs() {
     // fetch dell'array di oggetti con i cani e parse in json per
