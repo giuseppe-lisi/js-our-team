@@ -1,6 +1,10 @@
 const url = 'https://api.thedogapi.com/v1/images/search?limit=9';
 const loadMore = document.getElementById('load');
 
+function getRandom(min, max) {
+  return parseInt(Math.random() * (max - min) + min);
+}
+
 function fetchDogs() {
     // fetch dell'array di oggetti con i cani e parse in json per
     fetch(url)
@@ -18,32 +22,23 @@ function fetchDogs() {
  * Stampa a schermo le immagini pervenute dalla dog o cat API
 */
 function printDogs(dogObjArray) {
-    // definisce i div in cui verranno stampate le immagini
-    const dogContainer1 = document.getElementById('dog-img-container1');
-    const dogContainer2 = document.getElementById('dog-img-container2');
-    const dogContainer3 = document.getElementById('dog-img-container3');
+    // definisce il div in cui verranno stampate le immagini
+    const dogContainer = document.getElementById('dog-img-container');
+
     // array dove saranno contenuti tutti gli oggetti 'cane'
 
     // per ogni oggetto prende l'url e lo imposta come src del div immagine
     // che viene aggiunto al container delle immagini dei cani
     for (let i = 0; i < dogObjArray.length - 1; i++) {
         const dogObj = dogObjArray[i];
+        const randomHeight = getRandom(15, 30);
+        
         // per ogni oggetto, prende e stampa soltanto l'immagine
-        if (i <= 2) {
-            dogContainer1.innerHTML += `
-                <div class="img-card" style="background-image: url(${dogObj.url}); background-size: cover; background-repeat: no-repeat;"></div>
-            `
-        }
-        if (i >= 3 && i <= 5) {
-            dogContainer2.innerHTML += `
-                <div class="img-card" style="background-image: url(${dogObj.url}); background-size: cover; background-repeat: no-repeat;"></div>
-            `
-        }
-        if (i >= 6) {
-            dogContainer3.innerHTML += `
-                <div class="img-card" style="background-image: url(${dogObj.url}); background-size: cover; background-repeat: no-repeat;"></div>
-            `
-        }
+        dogContainer.innerHTML += `
+            <div class="img-card">
+                <img src="${dogObj.url}">
+            </div>
+        `
     }
 
 }

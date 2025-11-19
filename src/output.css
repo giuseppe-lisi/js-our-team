@@ -202,8 +202,20 @@
   .grid {
     display: grid;
   }
+  .h-50 {
+    height: calc(var(--spacing) * 50);
+  }
   .h-200 {
     height: calc(var(--spacing) * 200);
+  }
+  .h-\[25\%\] {
+    height: 25%;
+  }
+  .h-\[30\%\] {
+    height: 30%;
+  }
+  .h-\[1000px\] {
+    height: 1000px;
   }
   .w-\[30\%\] {
     width: 30%;
