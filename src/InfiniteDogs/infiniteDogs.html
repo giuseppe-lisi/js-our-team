@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <!-- Tailwindcss -->
-    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="../output.css">
     <title>InfiniteDogs | Home</title>
 </head>
-<body>
-    <h1>Infinite Dogs</h1>
-    <p>Scroll for More Dogs</p>
-    <div id="dog-img-container"></div>
 
-    <button id="load">Load More</button>
+<body>
+    <header class="wrapper text-center">
+        <h1>Infinite Dogs</h1>
+        <p>Scroll for More Dogs</p>
+    </header>
+
+    <!-- Dog Imgs Are Rendered Here -->
+    <div class="wrapper grid grid-cols-3 grid-rows-3 gap-5" id="dog-img-container">
+        
+    </div>
+
+    <div class="flex">
+        <button class="btn" id="load">Load More</button>
+    </div>
     <script src="./infiniteDogs.js"></script>
 </body>
+
 </html>
