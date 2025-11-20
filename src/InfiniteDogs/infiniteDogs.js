@@ -59,10 +59,12 @@ switchMode.addEventListener('click', () => {
     const col2 = document.getElementById('dog-img-col2');
     const col3 = document.getElementById('dog-img-col3');
     const animalEl = document.getElementById('animal');
+    const animalSpanEl = document.getElementById('animal-span');
 
     if (animal == 'dog') {
         animal = 'cat';
         animalEl.innerText = 'Cats';
+        animalSpanEl.innerText = 'Cats';
         col1.innerHTML = '';
         col2.innerHTML = '';
         col3.innerHTML = '';
@@ -70,6 +72,7 @@ switchMode.addEventListener('click', () => {
     } else {
         animal = 'dog';
         animalEl.innerText = 'Dogs';
+        animalSpanEl.innerText = 'Dogs';
         col1.innerHTML = '';
         col2.innerHTML = '';
         col3.innerHTML = '';

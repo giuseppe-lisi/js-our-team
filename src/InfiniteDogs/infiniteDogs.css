@@ -232,6 +232,7 @@
   .dog-img-container {
     display: flex;
     justify-content: center;
+    margin-bottom: 100px;
     gap: calc(var(--spacing) * 1);
   }
   .img-col {
